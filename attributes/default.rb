@@ -19,6 +19,10 @@
 
 default['activemq']['mirror']  = "http://apache.mirrors.tds.net"
 default['activemq']['version'] = "5.5.1"
-default['activemq']['home']  = "/opt"
+default['activemq']['home']  = if node[:platform] == 'mac_os_x' 
+                                 '/usr/local/Cellar'
+                               else
+                                 "/opt"
+                               end
 default['activemq']['wrapper']['max_memory'] = "512"
 default['activemq']['wrapper']['useDedicatedTaskRunner'] = "true"

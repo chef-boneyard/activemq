@@ -9,6 +9,8 @@ version          "1.0.2"
   supports os
 end
 
+supports 'mac_os_x'
+
 %w{java}.each do |cb|
   depends cb
 end
