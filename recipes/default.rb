@@ -91,8 +91,9 @@ end
 template "#{activemq_home}/bin/#{platform}/wrapper.conf" do
   source "wrapper.conf.erb"
   mode 0644
-  variables(:pidfile => pidfile,
-            :platform => platform)
+  variables(
+    :pidfile => pidfile,
+    :platform => platform
+  )
   notifies :restart, 'service[activemq]' unless platform == 'macosx'
 end
-
