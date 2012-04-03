@@ -17,8 +17,6 @@
 # limitations under the License.
 #
 
-include_recipe "java"
-
 version = node['activemq']['version']
 
 case node[:platform]
@@ -40,6 +38,8 @@ when 'macosx'
     version version
   end
 else
+  include_recipe "java"
+
   tmp = Chef::Config[:file_cache_path]
   mirror = node['activemq']['mirror']
 
@@ -82,6 +82,10 @@ else
     not_if "test -f /var/run/activemq.pid"
   end
 
+  service "activemq" do
+    supports  :restart => true, :status => true
+    action [:enable, :start]
+  end
 end
 
 template "#{activemq_home}/bin/#{platform}/wrapper.conf" do
@@ -89,12 +93,6 @@ template "#{activemq_home}/bin/#{platform}/wrapper.conf" do
   mode 0644
   variables(:pidfile => pidfile,
             :platform => platform)
-  notifies :restart, 'service[activemq]'
+  notifies :restart, 'service[activemq]' unless platform == 'macosx'
 end
 
-
-
-service "activemq" do
-  supports  :restart => true, :status => true
-  action [:enable, :start]
-end
