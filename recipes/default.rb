@@ -71,6 +71,5 @@ end
 template "#{activemq_home}/bin/linux/wrapper.conf" do
   source "wrapper.conf.erb"
   mode 0644
-  variables(:pidfile => "/var/run/activemq.pid")
   notifies :restart, 'service[activemq]'
 end
