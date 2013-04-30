@@ -6,7 +6,7 @@ description      "Installs activemq and sets it up as service"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          "1.1.1"
 
-%w{ubuntu debian redhat centos}.each do |os|
+%w{ubuntu debian redhat centos suse}.each do |os|
   supports os
 end
 
