@@ -57,19 +57,8 @@ service "activemq" do
   action [:enable, :start]
 end
 
-# symlink so the default wrapper.conf can find the native wrapper library
-link "#{activemq_home}/bin/linux" do
-  to "#{activemq_home}/bin/linux-#{arch}"
-end
-
 # symlink the wrapper's pidfile location into /var/run
 link "/var/run/activemq.pid" do
   to "#{activemq_home}/bin/linux/ActiveMQ.pid"
   not_if "test -f /var/run/activemq.pid"
-end
-
-template "#{activemq_home}/bin/linux/wrapper.conf" do
-  source "wrapper.conf.erb"
-  mode 0644
-  notifies :restart, 'service[activemq]'
 end
