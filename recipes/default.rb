@@ -52,12 +52,14 @@ link "/etc/init.d/activemq" do
   to "#{activemq_home}/bin/linux-#{arch}/activemq"
 end
 
-template "#{activemq_home}/conf/activemq.xml" do
+if node['activemq']['use_default_config']
+  template "#{activemq_home}/conf/activemq.xml" do
     source "activemq.xml.erb"
     mode "0777"
-    #owner "501"
-    group "games"
+    owner "root"
+    group "root"
     notifies :restart, "service[activemq]"
+  end
 end
 
 service "activemq" do
