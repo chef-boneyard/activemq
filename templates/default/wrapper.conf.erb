@@ -22,6 +22,8 @@
 #wrapper.debug=TRUE
 set.default.ACTIVEMQ_HOME=../..
 set.default.ACTIVEMQ_BASE=../..
+set.default.ACTIVEMQ_CONF=%ACTIVEMQ_BASE%/conf
+set.default.ACTIVEMQ_DATA=%ACTIVEMQ_BASE%/data
 wrapper.working.dir=.
 
 # Java Application
@@ -52,6 +54,8 @@ wrapper.java.additional.6=-Djavax.net.ssl.trustStore=%ACTIVEMQ_BASE%/conf/broker
 wrapper.java.additional.7=-Dcom.sun.management.jmxremote
 wrapper.java.additional.8=-Dorg.apache.activemq.UseDedicatedTaskRunner=<%= node['activemq']['wrapper']['useDedicatedTaskRunner'] %>
 wrapper.java.additional.9=-Djava.util.logging.config.file=logging.properties
+wrapper.java.additional.10=-Dactivemq.conf=%ACTIVEMQ_CONF%
+wrapper.java.additional.11=-Dactivemq.data=%ACTIVEMQ_DATA%
 
 # Uncomment to enable jmx
 #wrapper.java.additional.n=-Dcom.sun.management.jmxremote.port=1616
