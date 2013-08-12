@@ -22,9 +22,8 @@ Attributes
 * `node['activemq']['home']` - directory to deploy to (/opt by default)
 * `node['activemq']['wrapper']['max_memory']` - maximum amount of memory to use for activemq.
 * `node['activemq']['wrapper']['useDedicatedTaskRunner']` - whether to use the dedicated task runner
-* `node['activemq']['enable_stomp']` - Flag that decides wheither or not to use stomp. Note: This is
+* `node['activemq']['enable_stomp']` - Flag that decides whether or not to use stomp. Note: This is
 only used when `use_default_config` attribute is true.
-whether to use the dedicated task runner
 * `node['activemq']['use_default_config']` - Flag that allows the option to use a basic configuration file
 
 Usage

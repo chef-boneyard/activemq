@@ -55,7 +55,7 @@ end
 if node['activemq']['use_default_config']
   template "#{activemq_home}/conf/activemq.xml" do
     source "activemq.xml.erb"
-    mode "0777"
+    mode "0755"
     owner "root"
     group "root"
     notifies :restart, "service[activemq]"
