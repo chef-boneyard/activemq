@@ -22,3 +22,6 @@ default['activemq']['version'] = "5.8.0"
 default['activemq']['home']  = "/opt"
 default['activemq']['wrapper']['max_memory'] = "512"
 default['activemq']['wrapper']['useDedicatedTaskRunner'] = "true"
+
+default['activemq']['enable_stomp'] = true
+default['activemq']['use_default_config'] = false
