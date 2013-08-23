@@ -73,3 +73,9 @@ template "#{activemq_home}/bin/linux/wrapper.conf" do
   mode 0644
   notifies :restart, 'service[activemq]'
 end
+
+template "#{activemq_home}/conf/credentials.properties" do
+  source "credentials.conf.erb"
+  mode 0644
+  notifies :restart, 'service[activemq]'
+end
