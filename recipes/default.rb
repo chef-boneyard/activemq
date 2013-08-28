@@ -52,6 +52,16 @@ link "/etc/init.d/activemq" do
   to "#{activemq_home}/bin/linux-#{arch}/activemq"
 end
 
+if node['activemq']['use_default_config']
+  template "#{activemq_home}/conf/activemq.xml" do
+    source "activemq.xml.erb"
+    mode "0755"
+    owner "root"
+    group "root"
+    notifies :restart, "service[activemq]"
+  end
+end
+
 service "activemq" do
   supports  :restart => true, :status => true
   action [:enable, :start]
