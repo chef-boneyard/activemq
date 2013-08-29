@@ -3,6 +3,11 @@ activemq Cookbook CHANGELOG
 This file is used to list changes made in each version of the activemq cookbook.
 
 
+v1.2.0
+------
+### New Feature
+- **[COOK-1777](https://tickets.opscode.com/browse/COOK-1777)** - Add stomp integration
+
 v1.1.0
 ------
 - [COOK-2816] - update version to 5.8.0
