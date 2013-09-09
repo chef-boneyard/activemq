@@ -20,7 +20,7 @@
 default['activemq']['mirror']  = "http://apache.mirrors.tds.net"
 default['activemq']['version'] = "5.8.0"
 default['activemq']['home']  = "/opt"
-default['activemq']['wrapper']['max_memory'] = "512"
+default['activemq']['wrapper']['max_memory'] = "1024"
 default['activemq']['wrapper']['useDedicatedTaskRunner'] = "true"
 
 default['activemq']['enable_stomp'] = true
