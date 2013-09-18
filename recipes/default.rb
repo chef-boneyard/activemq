@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-include_recipe "java"
+include_recipe 'java::default'
 
 tmp = Chef::Config[:file_cache_path]
 version = node['activemq']['version']
@@ -31,7 +31,7 @@ end
 unless File.exists?("#{activemq_home}/bin/activemq")
   remote_file "#{tmp}/apache-activemq-#{version}-bin.tar.gz" do
     source "#{mirror}/activemq/apache-activemq/#{version}/apache-activemq-#{version}-bin.tar.gz"
-    mode "0644"
+    mode   '0644'
   end
 
   execute "tar zxf #{tmp}/apache-activemq-#{version}-bin.tar.gz" do
@@ -40,31 +40,30 @@ unless File.exists?("#{activemq_home}/bin/activemq")
 end
 
 file "#{activemq_home}/bin/activemq" do
-  owner "root"
-  group "root"
-  mode "0755"
+  owner 'root'
+  group 'root'
+  mode  '0755'
 end
 
 # TODO: make this more robust
-arch = (node['kernel']['machine'] == "x86_64") ? "x86-64" : "x86-32"
+arch = node['kernel']['machine'] == 'x86_64' ? 'x86-64' : 'x86-32'
 
-link "/etc/init.d/activemq" do
+link '/etc/init.d/activemq' do
   to "#{activemq_home}/bin/linux-#{arch}/activemq"
 end
 
-if node['activemq']['use_default_config']
-  template "#{activemq_home}/conf/activemq.xml" do
-    source "activemq.xml.erb"
-    mode "0755"
-    owner "root"
-    group "root"
-    notifies :restart, "service[activemq]"
-  end
+template "#{activemq_home}/conf/activemq.xml" do
+  source   'activemq.xml.erb'
+  mode     '0755'
+  owner    'root'
+  group    'root'
+  notifies :restart, 'service[activemq]'
+  only_if  { node['activemq']['use_default_config'] }
 end
 
-service "activemq" do
-  supports  :restart => true, :status => true
-  action [:enable, :start]
+service 'activemq' do
+  supports :restart => true, :status => true
+  action   [:enable, :start]
 end
 
 # symlink so the default wrapper.conf can find the native wrapper library
@@ -73,13 +72,13 @@ link "#{activemq_home}/bin/linux" do
 end
 
 # symlink the wrapper's pidfile location into /var/run
-link "/var/run/activemq.pid" do
+link '/var/run/activemq.pid' do
   to "#{activemq_home}/bin/linux/ActiveMQ.pid"
-  not_if "test -f /var/run/activemq.pid"
+  not_if 'test -f /var/run/activemq.pid'
 end
 
 template "#{activemq_home}/bin/linux/wrapper.conf" do
-  source "wrapper.conf.erb"
-  mode 0644
+  source   'wrapper.conf.erb'
+  mode     '0644'
   notifies :restart, 'service[activemq]'
 end

@@ -18,6 +18,7 @@
 #
 #
 class Chef
+  # ActiveMQ helper module
   module ActiveMQ
     # Returns the name of the jar file that contains the ActiveMQ main classes. Since ActiveMQ 5.8.0 the name
     # of such jar file is "activemq.jar", prior to that it was "run.jar".
@@ -26,17 +27,17 @@ class Chef
     #
     # @return [String] the name of the ActiveMQ jar file that should be included in the JVM Classpath.
     def self.get_amq_jar_name(node)
-        version = node['activemq']['version']
-        vMj, vMn, vRev = version.split('.').map { |v|  Integer(v) rescue nil }
+      version = node['activemq']['version']
+      major, minor, _ = version.split('.').map(&:to_i)
 
-        case
-        when vMj == 5 && vMn >= 8
-          'activemq.jar'
-        when vMj >= 6
-          'activemq.jar'
-        else
-          'run.jar'
-        end
+      case
+      when major == 5 && minor >= 8
+        'activemq.jar'
+      when major >= 6
+        'activemq.jar'
+      else
+        'run.jar'
+      end
     end
   end
 end
