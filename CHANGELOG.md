@@ -3,6 +3,13 @@ activemq Cookbook CHANGELOG
 This file is used to list changes made in each version of the activemq cookbook.
 
 
+v1.3.0
+------
+### Bug
+- **[COOK-3309](https://tickets.opscode.com/browse/COOK-3309)** - Fix service (re)start command
+- **[COOK-2846](https://tickets.opscode.com/browse/COOK-2846)** - Add support for openSUSE
+- **[COOK-2845](https://tickets.opscode.com/browse/COOK-2845)** - Support differing versions of `wrapper.conf`
+
 v1.2.0
 ------
 ### New Feature
