@@ -117,6 +117,7 @@
 <% end -%>
             <transportConnector name="mqtt" uri="mqtt://0.0.0.0:1883?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600"/>
             <transportConnector name="ws" uri="ws://0.0.0.0:61614?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600"/>
+            <transportConnector name="ssl" uri="ssl://0.0.0.0:61617?needClientAuth=true&amp;maximumConnections=1000&amp;wireformat.maxFrameSize=104857600" />
         </transportConnectors>
 
         <!-- destroy the spring context on shutdown to stop jetty -->
