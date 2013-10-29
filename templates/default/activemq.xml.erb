@@ -32,7 +32,7 @@
     <!--
         The <broker> element is used to configure the ActiveMQ broker.
     -->
-    <broker xmlns="http://activemq.apache.org/schema/core" brokerName="localhost" dataDirectory="${activemq.base}/data" destroyApplicationContextOnStop="true">
+    <broker xmlns="http://activemq.apache.org/schema/core" brokerName="localhost" dataDirectory="${activemq.base}/data">
 
         <!--
 			      For better performances use VM cursor and small memory limit.
@@ -133,6 +133,7 @@
             <% if node['activemq']['enable_stomp'] -%>
             <transportConnector name="stomp" uri="stomp://0.0.0.0:61613?maximumConnections=1000&amp;wireformat.maxFrameSize=104857600"/>
             <% end -%>
+            <transportConnector name="ssl" uri="ssl://0.0.0.0:61617?needClientAuth=true&amp;maximumConnections=1000&amp;wireformat.maxFrameSize=104857600" />
         </transportConnectors>
 
         <!-- destroy the spring context on shutdown to stop jetty -->
