@@ -24,6 +24,7 @@ Attributes
 - `node['activemq']['enable_stomp']` - Flag that decides whether or not to use stomp. Note: This is
 only used when `use_default_config` attribute is true.
 - `node['activemq']['use_default_config']` - Flag that allows the option to use a basic configuration file
+- `node['activemq']['broker_name']` - Flag that allows you to set the broker name.
 
 
 Usage
