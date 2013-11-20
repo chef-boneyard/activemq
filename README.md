@@ -7,6 +7,9 @@ Installs activemq and sets up a service using the init script that comes with it
 
 Requirements
 ------------
+### activemq Versions
+activemq.xml template (if using use_default_config attribute) only supports activemq versions higher than 5.5.1. (deprecated destroyApplicationContextOnStop activemq.xml config entry removed)
+
 ### Platforms
 Tested on Ubuntu 10.04 and CentOS 5.5. Should work on any Debian or Red Hat family distributions.
 
