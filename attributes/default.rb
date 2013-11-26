@@ -27,3 +27,4 @@ default['activemq']['enable_stomp'] = true
 default['activemq']['use_default_config'] = false
 
 default['activemq']['broker_name'] = 'localhost'
+default['activemq']['usejmx'] = false

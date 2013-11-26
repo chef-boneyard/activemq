@@ -28,6 +28,7 @@ Attributes
 only used when `use_default_config` attribute is true.
 - `node['activemq']['use_default_config']` - Flag that allows the option to use a basic configuration file
 - `node['activemq']['broker_name']` - Flag that allows you to set the broker name.
+- `node['activemq']['usejmx']` - Flag that allows you to enable jmx support.
 
 
 Usage
