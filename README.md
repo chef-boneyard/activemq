@@ -7,6 +7,9 @@ Installs activemq and sets up a service using the init script that comes with it
 
 Requirements
 ------------
+### activemq Versions
+activemq.xml template (if using use_default_config attribute) only supports activemq versions higher than 5.5.1. (deprecated destroyApplicationContextOnStop activemq.xml config entry removed)
+
 ### Platforms
 Tested on Ubuntu 10.04 and CentOS 5.5. Should work on any Debian or Red Hat family distributions.
 
@@ -24,6 +27,8 @@ Attributes
 - `node['activemq']['enable_stomp']` - Flag that decides whether or not to use stomp. Note: This is
 only used when `use_default_config` attribute is true.
 - `node['activemq']['use_default_config']` - Flag that allows the option to use a basic configuration file
+- `node['activemq']['broker_name']` - Flag that allows you to set the broker name.
+- `node['activemq']['usejmx']` - Flag that allows you to enable jmx support.
 
 
 Usage
