@@ -25,3 +25,7 @@ default['activemq']['wrapper']['useDedicatedTaskRunner'] = 'true'
 
 default['activemq']['enable_stomp'] = true
 default['activemq']['use_default_config'] = false
+
+# The original behavior was true, but that breaks recent ActiveMQs (5.9.0). 
+# Default should be false to let newer versions work by default.
+default['activemq']['destroy_app_context_on_stop'] = false
