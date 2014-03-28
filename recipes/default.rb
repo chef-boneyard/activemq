@@ -54,11 +54,10 @@ end
 
 template "#{activemq_home}/conf/activemq.xml" do
   source   'activemq.xml.erb'
-  mode     '0755'
+  mode     '0644'
   owner    'root'
   group    'root'
   notifies :restart, 'service[activemq]'
-  only_if  { node['rackspace_activemq']['use_default_config'] }
 end
 
 service 'activemq' do

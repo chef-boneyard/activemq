@@ -28,4 +28,3 @@ default['rackspace_activemq']['use_default_config'] = false
 
 default['rackspace_activemq']['broker_name'] = 'localhost'
 default['rackspace_activemq']['usejmx'] = false
-default['rackspace_activemq']['journalMaxFileLength'] = '100'
