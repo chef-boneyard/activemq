@@ -17,11 +17,14 @@
 # limitations under the License.
 #
 
-default['activemq']['mirror']  = 'http://apache.mirrors.tds.net'
-default['activemq']['version'] = '5.8.0'
-default['activemq']['home']  = '/opt'
-default['activemq']['wrapper']['max_memory'] = '1024'
-default['activemq']['wrapper']['useDedicatedTaskRunner'] = 'true'
+default['rackspace_activemq']['mirror']  = 'http://apache.mirrors.tds.net'
+default['rackspace_activemq']['version'] = '5.8.0'
+default['rackspace_activemq']['home']  = '/opt'
+default['rackspace_activemq']['wrapper']['max_memory'] = '1024'
+default['rackspace_activemq']['wrapper']['useDedicatedTaskRunner'] = 'true'
 
-default['activemq']['enable_stomp'] = true
-default['activemq']['use_default_config'] = false
+default['rackspace_activemq']['enable_stomp'] = true
+default['rackspace_activemq']['use_default_config'] = false
+
+default['rackspace_activemq']['broker_name'] = 'localhost'
+default['rackspace_activemq']['usejmx'] = false

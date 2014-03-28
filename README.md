@@ -1,14 +1,16 @@
-activemq Cookbook
+rackspace_activemq Cookbook
 =================
-[![Build Status](https://secure.travis-ci.org/opscode-cookbooks/activemq.png?branch=master)](http://travis-ci.org/opscode-cookbooks/activemq)
 
 Installs activemq and sets up a service using the init script that comes with it.
 
 
 Requirements
 ------------
+### activemq Versions
+activemq.xml template (if using use_default_config attribute) only supports activemq versions higher than 5.5.1. 
+
 ### Platforms
-Tested on Ubuntu 10.04 and CentOS 5.5. Should work on any Debian or Red Hat family distributions.
+Should work on any Debian or Red Hat family distributions.
 
 ### Cookbooks
 - java
@@ -16,50 +18,21 @@ Tested on Ubuntu 10.04 and CentOS 5.5. Should work on any Debian or Red Hat fami
 
 Attributes
 ----------
-- `node['activemq']['mirror']` - download URL up to the activemq/apache-activemq directory.
-- `node['activemq']['version']` - version to install.
-- `node['activemq']['home']` - directory to deploy to (/opt by default)
-- `node['activemq']['wrapper']['max_memory']` - maximum amount of memory to use for activemq.
-- `node['activemq']['wrapper']['useDedicatedTaskRunner']` - whether to use the dedicated task runner
-- `node['activemq']['enable_stomp']` - Flag that decides whether or not to use stomp. Note: This is
+- `node['rackspace_activemq']['mirror']` - download URL up to the activemq/apache-activemq directory.
+- `node['rackspace_activemq']['version']` - version to install.
+- `node['rackspace_activemq']['home']` - directory to deploy to (/opt by default)
+- `node['rackspace_activemq']['wrapper']['max_memory']` - maximum amount of memory to use for activemq.
+- `node['rackspace_activemq']['wrapper']['useDedicatedTaskRunner']` - whether to use the dedicated task runner
+- `node['rackspace_activemq']['enable_stomp']` - Flag that decides whether or not to use stomp. Note: This is
 only used when `use_default_config` attribute is true.
-- `node['activemq']['use_default_config']` - Flag that allows the option to use a basic configuration file
+- `node['rackspace_activemq']['use_default_config']` - Flag that allows the option to use a basic configuration file
+- `node['rackspace_activemq']['broker_name']` - Flag that allows you to set the broker name.
+- `node['rackspace_activemq']['usejmx']` - Flag that allows you to enable jmx support.
 
 
 Usage
 -----
-Simply add `recipe[activemq]` to a run list.
-
-
-Development
------------
-This section details "quick development" steps. For a detailed explanation, see [[Contributing.md]].
-
-1. Clone this repository from GitHub:
-
-        $ git clone git@github.com:opscode-cookbooks/activemq.git
-
-2. Create a git branch
-
-        $ git checkout -b my_bug_fix
-
-3. Install dependencies:
-
-        $ bundle install
-
-4. Make your changes/patches/fixes, committing appropiately
-5. **Write tests**
-6. Run the tests:
-    - `bundle exec foodcritic -f any .`
-    - `bundle exec rspec`
-    - `bundle exec rubocop`
-    - `bundle exec kitchen test`
-
-  In detail:
-    - Foodcritic will catch any Chef-specific style errors
-    - RSpec will run the unit tests
-    - Rubocop will check for Ruby-specific style errors
-    - Test Kitchen will run and converge the recipes
+Simply add `recipe[rackspace_activemq]` to a run list.
 
 
 License & Authors

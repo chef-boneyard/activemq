@@ -32,7 +32,7 @@
     <!--
         The <broker> element is used to configure the ActiveMQ broker.
     -->
-    <broker xmlns="http://activemq.apache.org/schema/core" brokerName="localhost" dataDirectory="${activemq.base}/data" destroyApplicationContextOnStop="true">
+    <broker xmlns="http://activemq.apache.org/schema/core" brokerName="<%= node['rackspace_activemq']['broker_name'] %>" <% if node['rackspace_activemq']['usejmx']==true -%>useJmx="true"<% end -%> dataDirectory="${rackspace_activemq.base}/data">
 
         <!--
 			      For better performances use VM cursor and small memory limit.
@@ -85,7 +85,11 @@
             http://activemq.apache.org/jmx.html
         -->
         <managementContext>
+	  <% if node['rackspace_activemq']['usejmx']==true -%>
+            <managementContext createConnector="true"/>
+          <% else -%>
             <managementContext createConnector="false"/>
+          <% end -%>
         </managementContext>
 
         <!--
@@ -96,7 +100,7 @@
             http://activemq.apache.org/persistence.html
         -->
         <persistenceAdapter>
-            <kahaDB directory="${activemq.data}/kahadb"/>
+            <kahaDB directory="${activemq.data}/kahadb" journalMaxFileLength="100mb"/>
         </persistenceAdapter>
 
 
@@ -130,7 +134,7 @@
             <!-- DOS protection, limit concurrent connections to 1000 and frame size to 100MB -->
             <transportConnector name="openwire" uri="tcp://0.0.0.0:61616?maximumConnections=1000&amp;wireformat.maxFrameSize=104857600"/>
             <transportConnector name="amqp" uri="amqp://0.0.0.0:5672?maximumConnections=1000&amp;wireformat.maxFrameSize=104857600"/>
-            <% if node['activemq']['enable_stomp'] -%>
+            <% if node['rackspace_activemq']['enable_stomp'] -%>
             <transportConnector name="stomp" uri="stomp://0.0.0.0:61613?maximumConnections=1000&amp;wireformat.maxFrameSize=104857600"/>
             <% end -%>
         </transportConnectors>
