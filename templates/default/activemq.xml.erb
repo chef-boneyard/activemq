@@ -32,7 +32,7 @@
     <!--
         The <broker> element is used to configure the ActiveMQ broker.
     -->
-    <broker xmlns="http://activemq.apache.org/schema/core" brokerName="<%= node['activemq']['broker_name'] %>" <% if node['activemq']['usejmx']==true -%>useJmx="true"<% end -%> dataDirectory="${activemq.base}/data">
+    <broker xmlns="http://activemq.apache.org/schema/core" brokerName="<%= node['rackspace_activemq']['broker_name'] %>" <% if node['rackspace_activemq']['usejmx']==true -%>useJmx="true"<% end -%> dataDirectory="${rackspace_activemq.base}/data">
 
         <!--
 			      For better performances use VM cursor and small memory limit.
@@ -85,7 +85,7 @@
             http://activemq.apache.org/jmx.html
         -->
         <managementContext>
-	  <% if node['activemq']['usejmx']==true -%>
+	  <% if node['rackspace_activemq']['usejmx']==true -%>
             <managementContext createConnector="true"/>
           <% else -%>
             <managementContext createConnector="false"/>
@@ -100,7 +100,7 @@
             http://activemq.apache.org/persistence.html
         -->
         <persistenceAdapter>
-            <kahaDB directory="${activemq.data}/kahadb"/>
+            <kahaDB directory="${rackspace_activemq.data}/kahadb" journalMaxFileLength="${rackspace_activemq.journalMaxFileLength}mb"/>
         </persistenceAdapter>
 
 
