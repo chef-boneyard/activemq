@@ -20,11 +20,11 @@
 include_recipe 'java::default'
 
 tmp = Chef::Config[:file_cache_path]
-version = node['activemq']['version']
-mirror = node['activemq']['mirror']
-activemq_home = "#{node['activemq']['home']}/apache-activemq-#{version}"
+version = node['rackspace_activemq']['version']
+mirror = node['rackspace_activemq']['mirror']
+activemq_home = "#{node['rackspace_activemq']['home']}/apache-activemq-#{version}"
 
-directory node['activemq']['home'] do
+directory node['rackspace_activemq']['home'] do
   recursive true
 end
 
@@ -35,7 +35,7 @@ unless File.exists?("#{activemq_home}/bin/activemq")
   end
 
   execute "tar zxf #{tmp}/apache-activemq-#{version}-bin.tar.gz" do
-    cwd node['activemq']['home']
+    cwd node['rackspace_activemq']['home']
   end
 end
 
@@ -58,7 +58,7 @@ template "#{activemq_home}/conf/activemq.xml" do
   owner    'root'
   group    'root'
   notifies :restart, 'service[activemq]'
-  only_if  { node['activemq']['use_default_config'] }
+  only_if  { node['rackspace_activemq']['use_default_config'] }
 end
 
 service 'activemq' do
