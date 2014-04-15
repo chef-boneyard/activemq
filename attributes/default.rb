@@ -17,8 +17,8 @@
 # limitations under the License.
 #
 
-default['activemq']['mirror']  = 'http://apache.mirrors.tds.net'
-default['activemq']['version'] = '5.8.0'
+default['activemq']['mirror']  = 'https://repository.apache.org/content/repositories/releases/org/apache'
+default['activemq']['version'] = '5.9.1'
 default['activemq']['home']  = '/opt'
 default['activemq']['wrapper']['max_memory'] = '1024'
 default['activemq']['wrapper']['useDedicatedTaskRunner'] = 'true'
