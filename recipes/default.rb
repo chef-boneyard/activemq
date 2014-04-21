@@ -30,7 +30,7 @@ end
 
 unless File.exists?("#{activemq_home}/bin/activemq")
   remote_file "#{tmp}/apache-activemq-#{version}-bin.tar.gz" do
-    source "#{mirror}/activemq/apache-activemq/#{version}/apache-activemq-#{version}-bin.tar.gz"
+    source "#{mirror}/activemq/#{version}/apache-activemq-#{version}-bin.tar.gz"
     mode   '0644'
   end
 
