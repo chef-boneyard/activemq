@@ -3,6 +3,11 @@ activemq Cookbook CHANGELOG
 This file is used to list changes made in each version of the activemq cookbook.
 
 
+v1.3.2 (2014-04-23)
+-------------------
+- [COOK-4557] activemq cookbook default mirror url is broken
+
+
 v1.3.0
 ------
 ### Bug
