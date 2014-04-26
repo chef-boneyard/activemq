@@ -17,6 +17,7 @@
 # limitations under the License.
 #
 
+default['activemq']['install_type'] = 'tarball'
 default['activemq']['mirror']  = 'https://repository.apache.org/content/repositories/releases/org/apache'
 default['activemq']['version'] = '5.9.1'
 default['activemq']['home']  = '/opt'
