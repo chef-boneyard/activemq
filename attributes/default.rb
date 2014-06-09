@@ -18,6 +18,7 @@
 #
 
 default['activemq']['mirror']  = "http://apache.mirrors.tds.net"
+default['activemq']['archive']  = "http://archive.apache.org"
 default['activemq']['version'] = "5.5.1"
 default['activemq']['home']  = "/opt"
 default['activemq']['wrapper']['max_memory'] = "512"
