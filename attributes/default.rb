@@ -25,3 +25,7 @@ default['activemq']['wrapper']['useDedicatedTaskRunner'] = 'true'
 
 default['activemq']['enable_stomp'] = true
 default['activemq']['use_default_config'] = false
+
+
+#Properties related to 'activemq' 'broker'.
+default['activemq']['brokerName'] = 'localhost'
