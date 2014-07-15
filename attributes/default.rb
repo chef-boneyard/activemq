@@ -29,3 +29,11 @@ default['activemq']['use_default_config'] = false
 
 #Properties related to 'activemq' 'broker'.
 default['activemq']['brokerName'] = 'localhost'
+
+#Admin console properties
+default['activemq']['admin_console']['customize'] = 'false'
+default['activemq']['admin_console']['port'] = '9161'
+default['activemq']['admin_console']['credentials']['customize'] = 'true'
+default['activemq']['admin_console']['credentials']['user_name'] = 'admin'
+default['activemq']['admin_console']['credentials']['password'] = 'admin'
+default['activemq']['admin_console']['new_admin_console_name'] = 'admin'
