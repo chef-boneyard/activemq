@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-include_recipe 'java::default'
+include_recipe 'java::default' if node['activemq']['install_java']
 
 tmp = Chef::Config[:file_cache_path]
 version = node['activemq']['version']
