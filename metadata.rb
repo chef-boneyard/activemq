@@ -11,3 +11,5 @@ version          '1.3.3'
 end
 
 depends 'java', '~> 1.13'
+
+recipe 'activemq::default', 'Installs ActiveMQ and sets it up as a service.'
