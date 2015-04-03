@@ -1,6 +1,8 @@
 activemq Cookbook CHANGELOG
 ===========================
 This file is used to list changes made in each version of the activemq cookbook.
+v1.3.4 (Development)
+-------------------
 
 v1.3.3 (2015-04-03)
 ------------------
