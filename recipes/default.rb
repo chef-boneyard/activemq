@@ -80,5 +80,6 @@ end
 template "#{activemq_home}/bin/linux/wrapper.conf" do
   source   'wrapper.conf.erb'
   mode     '0644'
+  only_if  { node['activemq']['use_default_config'] }
   notifies :restart, 'service[activemq]'
 end
