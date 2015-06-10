@@ -61,6 +61,25 @@ template "#{activemq_home}/conf/activemq.xml" do
   only_if  { node['activemq']['use_default_config'] }
 end
 
+template "#{activemq_home}/conf/jetty.xml" do
+  source   'jetty.xml.erb'
+  mode     '0755'
+  owner    'root'
+  group    'root'
+  notifies :restart, 'service[activemq]'
+  only_if  { node['activemq']['admin_console']['customize'] }
+end
+
+template "#{activemq_home}/conf/jetty-realm.properties" do
+  source   'jetty-realm.properties.erb'
+  mode     '0755'
+  owner    'root'
+  group    'root'
+  notifies :restart, 'service[activemq]'
+  only_if  { node['activemq']['admin_console']['credentials']['customize'] }
+end
+
+
 service 'activemq' do
   supports :restart => true, :status => true
   action   [:enable, :start]
