@@ -64,6 +64,7 @@ end
 service 'activemq' do
   supports :restart => true, :status => true
   action   [:enable, :start]
+  only_if { node['activemq']['enabled'] }
 end
 
 # symlink so the default wrapper.conf can find the native wrapper library
@@ -80,5 +81,5 @@ end
 template "#{activemq_home}/bin/linux/wrapper.conf" do
   source   'wrapper.conf.erb'
   mode     '0644'
-  notifies :restart, 'service[activemq]'
+  notifies :restart, 'service[activemq]' if node['activemq']['enabled']
 end
