@@ -1,6 +1,11 @@
 activemq Cookbook CHANGELOG
 ===========================
 This file is used to list changes made in each version of the activemq cookbook.
+
+v1.3.5
+-------------------
+- Adding global amq distribution service switch
+
 v1.3.4 (Development)
 -------------------
 
