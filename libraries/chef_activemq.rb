@@ -28,7 +28,7 @@ class Chef
     # @return [String] the name of the ActiveMQ jar file that should be included in the JVM Classpath.
     def self.get_amq_jar_name(node)
       version = node['activemq']['version']
-      major, minor, _ = version.split('.').map(&:to_i)
+      major, minor, = version.split('.').map(&:to_i)
 
       case
       when major == 5 && minor >= 8

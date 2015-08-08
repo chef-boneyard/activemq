@@ -2,7 +2,7 @@
 # Cookbook Name:: activemq
 # Recipe:: default
 #
-# Copyright 2009, Opscode, Inc.
+# Copyright 2009-2015, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -28,10 +28,10 @@ directory node['activemq']['home'] do
   recursive true
 end
 
-unless File.exists?("#{activemq_home}/bin/activemq")
+unless File.exist?("#{activemq_home}/bin/activemq")
   remote_file "#{tmp}/apache-activemq-#{version}-bin.tar.gz" do
     source "#{mirror}/activemq/apache-activemq/#{version}/apache-activemq-#{version}-bin.tar.gz"
-    mode   '0644'
+    mode '0644'
   end
 
   execute "tar zxf #{tmp}/apache-activemq-#{version}-bin.tar.gz" do
@@ -42,7 +42,7 @@ end
 file "#{activemq_home}/bin/activemq" do
   owner 'root'
   group 'root'
-  mode  '0755'
+  mode '0755'
 end
 
 # TODO: make this more robust
@@ -53,17 +53,17 @@ link '/etc/init.d/activemq' do
 end
 
 template "#{activemq_home}/conf/activemq.xml" do
-  source   'activemq.xml.erb'
-  mode     '0755'
-  owner    'root'
-  group    'root'
+  source 'activemq.xml.erb'
+  mode '0755'
+  owner 'root'
+  group 'root'
   notifies :restart, 'service[activemq]'
   only_if  { node['activemq']['use_default_config'] }
 end
 
 service 'activemq' do
   supports :restart => true, :status => true
-  action   [:enable, :start]
+  action [:enable, :start]
   only_if { node['activemq']['enabled'] }
 end
 
@@ -79,7 +79,7 @@ link '/var/run/activemq.pid' do
 end
 
 template "#{activemq_home}/bin/linux/wrapper.conf" do
-  source   'wrapper.conf.erb'
-  mode     '0644'
+  source 'wrapper.conf.erb'
+  mode '0644'
   notifies :restart, 'service[activemq]' if node['activemq']['enabled']
 end

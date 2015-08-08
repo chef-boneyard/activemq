@@ -2,7 +2,7 @@
 # Cookbook Name:: activemq
 # Attributes:: default
 #
-# Copyright 2009-2011, Opscode, Inc.
+# Copyright 2009-2015, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@
 
 default['activemq']['mirror']  = 'https://repository.apache.org/content/repositories/releases/org/apache'
 default['activemq']['version'] = '5.9.1'
-default['activemq']['home']  = '/opt'
+default['activemq']['home'] = '/opt'
 default['activemq']['wrapper']['max_memory'] = '1024'
 default['activemq']['wrapper']['useDedicatedTaskRunner'] = 'true'
 

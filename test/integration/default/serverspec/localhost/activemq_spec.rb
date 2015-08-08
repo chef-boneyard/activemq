@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe 'ActiveMQ server' do
-
   it 'should have a vagrant user' do
     expect(user('vagrant')).to exist
   end
@@ -10,5 +9,4 @@ describe 'ActiveMQ server' do
     expect(service('activemq')).to be_running
     expect(service('activemq')).to be_enabled
   end
-
 end
