@@ -26,3 +26,4 @@ default['activemq']['wrapper']['useDedicatedTaskRunner'] = 'true'
 default['activemq']['enabled'] = true
 default['activemq']['enable_stomp'] = true
 default['activemq']['use_default_config'] = false
+default['activemq']['install_java'] = true
