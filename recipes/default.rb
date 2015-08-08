@@ -22,22 +22,33 @@ include_recipe 'java::default' if node['activemq']['install_java']
 tmp = Chef::Config[:file_cache_path]
 version = node['activemq']['version']
 mirror = node['activemq']['mirror']
-activemq_home = "#{node['activemq']['home']}/apache-activemq-#{version}"
+if node['activemq']['install_type'] == 'tarball'
+  activemq_home = "#{node['activemq']['home']}/apache-activemq-#{version}"
+else
+  activemq_home = node['activemq']['home']
+end
 
 directory node['activemq']['home'] do
   recursive true
 end
 
-unless File.exists?("#{activemq_home}/bin/activemq")
-  remote_file "#{tmp}/apache-activemq-#{version}-bin.tar.gz" do
-    source "#{mirror}/activemq/apache-activemq/#{version}/apache-activemq-#{version}-bin.tar.gz"
-    mode   '0644'
+if node['activemq']['install_type'] == 'tarball'
+  unless File.exists?("#{activemq_home}/bin/activemq")
+    remote_file "#{tmp}/apache-activemq-#{version}-bin.tar.gz" do
+      source "#{mirror}/activemq/#{version}/apache-activemq-#{version}-bin.tar.gz"
+      mode   '0644'
+    end
+  
+    execute "tar zxf #{tmp}/apache-activemq-#{version}-bin.tar.gz" do
+      cwd node['activemq']['home']
+    end
   end
-
-  execute "tar zxf #{tmp}/apache-activemq-#{version}-bin.tar.gz" do
-    cwd node['activemq']['home']
+elsif node['activemq']['install_type'] == 'package'
+  package 'activemq' do
+    action :install
   end
 end
+  
 
 file "#{activemq_home}/bin/activemq" do
   owner 'root'
