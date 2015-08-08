@@ -8,7 +8,7 @@ version          '1.3.5'
 source_url       "https://github.com/opscode-cookbooks/activemq"
 issues_url       "https://github.com/opscode-cookbooks/activemq/issues"
 
-%w(ubuntu debian redhat centos suse).each do |os|
+%w(ubuntu debian redhat centos suse scientific oracle amazon).each do |os|
   supports os
 end
 
