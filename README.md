@@ -1,6 +1,8 @@
 activemq Cookbook
 =================
-[![Build Status](https://secure.travis-ci.org/opscode-cookbooks/activemq.png?branch=master)](http://travis-ci.org/opscode-cookbooks/activemq)
+
+[![Build Status](https://travis-ci.org/opscode-cookbooks/activemq.svg?branch=master)](https://travis-ci.org/opscode-cookbooks/activemq)
+[![Cookbook Version](https://img.shields.io/cookbook/v/activemq.svg)](https://supermarket.chef.io/cookbooks/activemq)
 
 Installs activemq and sets up a service using the init script that comes with it.
 
@@ -8,9 +10,12 @@ Installs activemq and sets up a service using the init script that comes with it
 Requirements
 ------------
 ### Platforms
-Tested on Ubuntu 10.04 and CentOS 5.5. Should work on any Debian or Red Hat family distributions.
+
+- Debian/Ubuntu
+- RHEL/CentOS/Scientific/Amazon
 
 ### Cookbooks
+
 - java
 
 
