@@ -1,11 +1,13 @@
 AllCops:
-  Excludes:
+  Exclude:
     - vendor/**
 
 AlignParameters:
   Enabled: false
+
 Encoding:
   Enabled: false
+
 HashSyntax:
   Enabled: false
 LineLength:
