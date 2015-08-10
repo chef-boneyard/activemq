@@ -13,3 +13,5 @@ issues_url 'https://github.com/opscode-cookbooks/activemq/issues'
 end
 
 depends 'java', '~> 1.13'
+
+recipe 'activemq::default', 'Installs ActiveMQ and sets it up as a service.'
