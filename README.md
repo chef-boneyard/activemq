@@ -12,7 +12,7 @@ Requirements
 ### Platforms
 
 - Debian/Ubuntu
-- RHEL/CentOS/Scientific/Amazon
+- RHEL/CentOS/Scientific/Amazon/Oracle
 
 ### Cookbooks
 
