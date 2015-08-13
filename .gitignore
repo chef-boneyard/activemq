@@ -1,4 +1,5 @@
 *.gem
+.zero-knife.rb
 *.rbc
 .bundle
 .config
@@ -36,7 +37,6 @@ Berksfile.lock
 .kitchen.local.yml
 vendor/
 .coverage/
-.zero-knife.rb
 
 #vagrant stuff
 .vagrant/
