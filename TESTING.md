@@ -1,7 +1,7 @@
 This cookbook uses a variety of testing components:
 
 - Unit tests: [ChefSpec](https://github.com/acrmp/chefspec)
-- Integration tests: [Test Kitchen](https://github.com/opscode/test-kitchen)
+- Integration tests: [Test Kitchen](https://github.com/chef/test-kitchen)
 - Chef Style lints: [Foodcritic](https://github.com/acrmp/foodcritic)
 - Ruby Style lints: [Rubocop](https://github.com/bbatsov/rubocop)
 
@@ -32,16 +32,15 @@ Development
 
 2. Install the dependencies using bundler:
 
-    $ bundle install
+        $ bundle install
 
 3. Create a branch for your changes:
 
-    $ git checkout -b my_bug_fix
+        $ git checkout -b my_bug_fix
 
 4. Make any changes
 5. Write tests to support those changes. It is highly recommended you write both unit and integration tests.
 6. Run the tests:
-
     - `bundle exec rspec`
     - `bundle exec foodcritic .`
     - `bundle exec rubocop`
@@ -51,4 +50,4 @@ Development
 8. Open a JIRA ticket for this compontent, linking the JIRA ticket to the Pull Request and visa versa.
 9. Mark the JIRA ticket as "Fix Provided"
 
-For more information, see [Opscode's Contribution Guidelines](https://wiki.opscode.com/display/chef/How+to+Contribute).
+For more information, see [Opscode's Contribution Guidelines](https://docs.chef.io/community_contributions.html).
