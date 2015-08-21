@@ -9,7 +9,7 @@ driver_config:
   require_chef_omnibus: true
 
 platforms:
-  - name: centos-5.10
+  - name: centos-5.11
   - name: centos-6.6
   - name: centos-7.1
   - name: debian-6.0.10
