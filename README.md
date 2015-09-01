@@ -4,7 +4,7 @@ activemq Cookbook
 [![Build Status](https://travis-ci.org/opscode-cookbooks/activemq.svg?branch=master)](https://travis-ci.org/opscode-cookbooks/activemq)
 [![Cookbook Version](https://img.shields.io/cookbook/v/activemq.svg)](https://supermarket.chef.io/cookbooks/activemq)
 
-Installs activemq and sets up a service using the init script that comes with it.
+Installs Apache ActiveMQ and sets up the service using the included init script.
 
 
 Requirements
