@@ -45,7 +45,6 @@ file "#{activemq_home}/bin/activemq" do
   mode '0755'
 end
 
-# TODO: make this more robust
 arch = node['kernel']['machine'] == 'x86_64' ? 'x86-64' : 'x86-32'
 
 link '/etc/init.d/activemq' do
