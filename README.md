@@ -30,6 +30,7 @@ Attributes
 only used when `use_default_config` attribute is true.
 - `node['activemq']['use_default_config']` - Flag that allows the option to use a basic configuration file
 - `node['activemq']['install_java']` - Whether or not to use the Java community cookbook to install Java. Defaults to `true`.
+- `node['activemq']['enabled']` - Whether or not the ActiveMQ service should be started.  Defaults to `true`.
 
 
 Usage
