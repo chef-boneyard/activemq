@@ -56,7 +56,7 @@ template "#{activemq_home}/conf/activemq.xml" do
   mode '0755'
   owner 'root'
   group 'root'
-  notifies :restart, 'service[activemq]'
+  notifies :restart, 'service[activemq]' if node['activemq']['enabled']
   only_if  { node['activemq']['use_default_config'] }
 end
 
