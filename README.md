@@ -10,12 +10,13 @@ Installs Apache ActiveMQ and sets up the service using the included init script.
 Requirements
 ------------
 ### Platforms
-
 - Debian/Ubuntu
 - RHEL/CentOS/Scientific/Amazon/Oracle
 
-### Cookbooks
+### Chef
+Chef 11+
 
+### Cookbooks
 - java
 
 
