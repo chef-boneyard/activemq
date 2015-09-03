@@ -61,7 +61,7 @@ template "#{activemq_home}/conf/activemq.xml" do
 end
 
 service 'activemq' do
-  supports :restart => true, :status => true
+  supports restart: true, status: true
   action [:enable, :start]
   only_if { node['activemq']['enabled'] }
 end
