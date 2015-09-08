@@ -12,5 +12,5 @@ end
 depends 'java', '~> 1.13'
 
 recipe 'activemq::default', 'Installs Apache ActiveMQ and sets up the service using the included init script.'
-source_url 'https://github.com/opscode-cookbooks/activemq' if respond_to?(:source_url)
-issues_url 'https://github.com/opscode-cookbooks/activemq/issues' if respond_to?(:source_url)
+source_url 'https://github.com/chef-cookbooks/activemq' if respond_to?(:source_url)
+issues_url 'https://github.com/chef-cookbooks/activemq/issues' if respond_to?(:source_url)
