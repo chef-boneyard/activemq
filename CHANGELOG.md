@@ -2,6 +2,28 @@ activemq Cookbook CHANGELOG
 ===========================
 This file is used to list changes made in each version of the activemq cookbook.
 
+v2.0.0 (2015-09-07)
+--------------------------
+- Default to ActiveMQ version 5.12.0
+- Updated to the latest out of the box ActiveMQ config XML file so that newer installs could be successfully started.  This is a 100% breaking change for older ActiveMQ installs.
+- Added new attribute to decide if the service should be started or not: `node['activemq']['enabled']`.  Defaults to true, but can be used with wrapper cookbooks that need to install additional configs before starting ActiveMQ
+- Added new attribute to decide if Java should be installed or not: `node['activemq']['install_java']`.  Defaults to true
+- Fixed wrapper.conf to only template if `node['activemq']['use_default_config']` is set
+- Updated Berksfile to 3.0 format
+- Update Kitchen CI config with additional platforms and the attributes necessary for a clean converge
+- Update Travis CI to test on Ruby 2/2.1/2.2 and to use the containe infrastructure and bundler caching for faster tests
+- Removed yum as a dependency in the Berksfile since it's not actually used anywhere
+- Added the new contributing and testing docs
+- Add a maintainers file
+- Updated all development dependencies in the Gemfile
+- Clarified that Chef 11+ is required in the readme
+- Added Travis and Supermarket badges in the readme
+- Added scientific oracle, and amazon to the metdata file
+- Add source_url and issues_url metadata to the metadata file
+- Added minimal Chefspec to test recipe convergence
+- Updated .gitignore and added a chefignore file
+- Fix serverspec tests to run with the the latest serverspec release
+
 v1.3.5
 -------------------
 - Adding global amq distribution service switch
