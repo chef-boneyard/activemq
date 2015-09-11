@@ -2,6 +2,13 @@ activemq Cookbook CHANGELOG
 ===========================
 This file is used to list changes made in each version of the activemq cookbook.
 
+v2.0.1 (2015-09-11)
+- Update metadata for the move from opscode-cookbooks to chef-cookbooks
+- Resolve rubocop warnings in the Rakefile and Rake tasks
+- Remove incorrect development documentation in the readme
+- Update the author to be the Cookbook Engineering Team
+- Add additional development gems for rake and cloud testing
+
 v2.0.0 (2015-09-07)
 --------------------------
 - Default to ActiveMQ version 5.12.0
