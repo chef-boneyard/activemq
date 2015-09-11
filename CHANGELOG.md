@@ -3,6 +3,7 @@ activemq Cookbook CHANGELOG
 This file is used to list changes made in each version of the activemq cookbook.
 
 v2.0.1 (2015-09-11)
+-------------------
 - Update metadata for the move from opscode-cookbooks to chef-cookbooks
 - Resolve rubocop warnings in the Rakefile and Rake tasks
 - Remove incorrect development documentation in the readme
@@ -10,7 +11,7 @@ v2.0.1 (2015-09-11)
 - Add additional development gems for rake and cloud testing
 
 v2.0.0 (2015-09-07)
---------------------------
+-------------------
 - Default to ActiveMQ version 5.12.0
 - Updated to the latest out of the box ActiveMQ config XML file so that newer installs could be successfully started.  This is a 100% breaking change for older ActiveMQ installs.
 - Added new attribute to decide if the service should be started or not: `node['activemq']['enabled']`.  Defaults to true, but can be used with wrapper cookbooks that need to install additional configs before starting ActiveMQ
