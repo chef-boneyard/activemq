@@ -45,7 +45,7 @@ This section details "quick development" steps. For a detailed explanation, see 
 
 1. Clone this repository from GitHub:
 
-        $ git clone git@github.com:opscode-cookbooks/activemq.git
+        $ git clone git@github.com:chef-cookbooks/activemq.git
 
 2. Create a git branch
 
