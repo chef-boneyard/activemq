@@ -24,5 +24,7 @@ PerceivedComplexity:
   Enabled: false
 SingleSpaceBeforeFirstArg:
   Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
 Style/FileName:
   Enabled: false
