@@ -22,6 +22,10 @@ default['activemq']['version'] = '5.12.0'
 default['activemq']['home'] = '/opt'
 default['activemq']['wrapper']['max_memory'] = '1024'
 default['activemq']['wrapper']['useDedicatedTaskRunner'] = 'true'
+default['activemq']['wrapper']['keystore_password'] = 'password'
+default['activemq']['wrapper']['truststore_password'] = 'password'
+default['activemq']['wrapper']['keystore_path'] = '%ACTIVEMQ_CONF%/broker.ks'
+default['activemq']['wrapper']['truststore_path'] = '%ACTIVEMQ_CONF%/broker.ts'
 
 default['activemq']['enabled'] = true
 default['activemq']['enable_stomp'] = true
