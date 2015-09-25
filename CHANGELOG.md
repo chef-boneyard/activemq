@@ -2,6 +2,14 @@ activemq Cookbook CHANGELOG
 ===========================
 This file is used to list changes made in each version of the activemq cookbook.
 
+v2.0.2 (2015-09-24)
+-------------------
+- Add new attributes for controlling the SSL settings
+  - `default['activemq']['wrapper']['keystore_password']`
+  - `default['activemq']['wrapper']['truststore_password']`
+  - `default['activemq']['wrapper']['keystore_path']`
+  - `default['activemq']['wrapper']['truststore_path']`
+
 v2.0.1 (2015-09-11)
 -------------------
 - Update metadata for the move from opscode-cookbooks to chef-cookbooks
