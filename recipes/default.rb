@@ -34,6 +34,8 @@ unless File.exist?("#{activemq_home}/bin/activemq")
     mode '0644'
   end
 
+  package 'tar'
+
   execute "tar zxf #{tmp}/apache-activemq-#{version}-bin.tar.gz" do
     cwd node['activemq']['home']
   end
