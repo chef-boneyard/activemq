@@ -13,14 +13,14 @@ platforms:
     platform: rhel
     run_command: /sbin/init
     provision_command:
-      - /bin/yum install -y initscripts net-tools wget
+      - /usr/bin/yum install -y initscripts net-tools wget
 - name: centos-6
   driver:
     image: centos:6
     platform: rhel
     run_command: /sbin/init
     provision_command:
-      - /bin/yum install -y initscripts net-tools wget
+      - /usr/bin/yum install -y initscripts net-tools wget
 - name: centos-7
   driver:
     image: centos:7
