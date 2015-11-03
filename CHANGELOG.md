@@ -2,6 +2,12 @@ activemq Cookbook CHANGELOG
 ===========================
 This file is used to list changes made in each version of the activemq cookbook.
 
+v2.0.3 (2015-11-02)
+-------------------
+- Install tar for minimal rhel installs that might not have it
+- Test in Travis with kitchen-docker so each commit triggers a full integration test
+- Update the development and testing gems in the Gemfile
+
 v2.0.2 (2015-09-24)
 -------------------
 - Add new attributes for controlling the SSL settings
