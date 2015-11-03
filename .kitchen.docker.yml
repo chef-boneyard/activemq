@@ -39,13 +39,6 @@ platforms:
     provision_command:
       - /usr/bin/apt-get update
       - /usr/bin/apt-get install apt-transport-https net-tools -y
-- name: fedora-22
-  driver:
-    image: fedora:22
-    platform: rhel
-    run_command: /usr/lib/systemd/systemd
-    provision_command:
-      - /usr/bin/dnf install -y initscripts net-tools wget
 
 suites:
   - name: default
@@ -54,4 +47,4 @@ suites:
       activemq:
         use_default_config: true
       java:
-        jdk_version: 7
+        jdk_version: 8
