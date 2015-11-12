@@ -54,6 +54,8 @@ features/*
 examples/*
 Guardfile
 Procfile
+.kitchen*
+.rubocop.yml
 spec/*
 Rakefile
 .travis.yml
@@ -98,4 +100,3 @@ Strainerfile
 ###########
 .vagrant
 Vagrantfile
-
