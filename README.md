@@ -1,48 +1,35 @@
-activemq Cookbook
-=================
-
-[![Build Status](https://travis-ci.org/chef-cookbooks/activemq.svg?branch=master)](https://travis-ci.org/chef-cookbooks/activemq)
-[![Cookbook Version](https://img.shields.io/cookbook/v/activemq.svg)](https://supermarket.chef.io/cookbooks/activemq)
+# activemq Cookbook
+[![Build Status](https://travis-ci.org/chef-cookbooks/activemq.svg?branch=master)](https://travis-ci.org/chef-cookbooks/activemq) [![Cookbook Version](https://img.shields.io/cookbook/v/activemq.svg)](https://supermarket.chef.io/cookbooks/activemq)
 
 Installs Apache ActiveMQ and sets up the service using the included init script.
 
-
-Requirements
-------------
-#### Platforms
+## Requirements
+### Platforms
 - Debian/Ubuntu
 - RHEL/CentOS/Scientific/Amazon/Oracle
 
-#### Chef
+### Chef
 - Chef 11+
 
-#### Cookbooks
+### Cookbooks
 - java
 
-
-Attributes
-----------
+## Attributes
 - `node['activemq']['mirror']` - download URL up to the activemq/apache-activemq directory.
 - `node['activemq']['version']` - version to install.
 - `node['activemq']['home']` - directory to deploy to (/opt by default)
 - `node['activemq']['wrapper']['max_memory']` - maximum amount of memory to use for activemq.
 - `node['activemq']['wrapper']['useDedicatedTaskRunner']` - whether to use the dedicated task runner
-- `node['activemq']['enable_stomp']` - Flag that decides whether or not to use stomp. Note: This is
-only used when `use_default_config` attribute is true.
+- `node['activemq']['enable_stomp']` - Flag that decides whether or not to use stomp. Note: This is only used when `use_default_config` attribute is true.
 - `node['activemq']['use_default_config']` - Flag that allows the option to use a basic configuration file
 - `node['activemq']['install_java']` - Whether or not to use the Java community cookbook to install Java. Defaults to `true`.
 - `node['activemq']['enabled']` - Whether or not the ActiveMQ service should be started.  Defaults to `true`.
 
-
-Usage
------
+## Usage
 Simply add `recipe[activemq]` to a run list.
 
-
-License & Authors
------------------
-
-**Author:** Cookbook Engineering Team (<cookbooks@chef.io>)
+## License & Authors
+**Author:** Cookbook Engineering Team ([cookbooks@chef.io](mailto:cookbooks@chef.io))
 
 **Copyright:** 2008-2015, Chef Software, Inc.
 
