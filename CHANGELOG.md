@@ -1,6 +1,9 @@
 # activemq Cookbook CHANGELOG
 This file is used to list changes made in each version of the activemq cookbook.
 
+## v2.0.4 (2015-12-03)
+- Add a new attribute for setting transport protocols: default['activemq']['transport_protocols']
+
 ## v2.0.3 (2015-11-02)
 - Install tar for minimal rhel installs that might not have it
 - Test in Travis with kitchen-docker so each commit triggers a full integration test
