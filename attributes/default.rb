@@ -31,3 +31,6 @@ default['activemq']['enabled'] = true
 default['activemq']['enable_stomp'] = true
 default['activemq']['use_default_config'] = false
 default['activemq']['install_java'] = true
+# set to 'TLSv1,TLSv1.1,TLSv1.2'
+# to disable sslv3 and protect against poodle
+default['activemq']['transport_protocols'] = nil
