@@ -6,3 +6,4 @@ group :integration do
   cookbook 'yum'
   cookbook 'apt'
 end
+cookbook 'test', path: 'test/cookbooks/test'
