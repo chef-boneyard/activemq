@@ -1,17 +1,20 @@
-### Environment: 
-[Details about the environment such as the Operating System, cookbook details, etc...]
+### Cookbook version
+[Version of the cookbook where you are encountering the issue]
+
+### Chef-client version
+[Version of chef-client in your environment]
+
+### Platform Details
+[Operating system distribution and release version. Cloud provider if running in the cloud]
 
 ### Scenario:
 [What you are trying to achieve and you can't?]
 
-
 ### Steps to Reproduce:
 [If you are filing an issue what are the things we need to do in order to repro your problem?]
 
-
 ### Expected Result:
 [What are you expecting to happen as the consequence of above reproduction steps?]
-
 
 ### Actual Result:
 [What actually happens after the reproduction steps?]
