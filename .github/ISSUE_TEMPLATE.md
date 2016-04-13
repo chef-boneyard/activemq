@@ -17,4 +17,4 @@
 [What are you expecting to happen as the consequence of above reproduction steps?]
 
 ### Actual Result:
-[What actually happens after the reproduction steps?]
+[What actually happens after the reproduction steps? Include the error output or a link to a gist if possible.]
