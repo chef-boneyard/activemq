@@ -31,6 +31,8 @@ end
 unless File.exist?("#{activemq_home}/bin/activemq")
   remote_file "#{tmp}/apache-activemq-#{version}-bin.tar.gz" do
     source "#{mirror}/activemq/apache-activemq/#{version}/apache-activemq-#{version}-bin.tar.gz"
+    owner node['activemq']['user'] || 'root'
+    group node['activemq']['group'] || 'root'
     mode '0644'
   end
 
@@ -42,8 +44,8 @@ unless File.exist?("#{activemq_home}/bin/activemq")
 end
 
 file "#{activemq_home}/bin/activemq" do
-  owner 'root'
-  group 'root'
+  owner node['activemq']['user'] || 'root'
+  group node['activemq']['group'] || 'root'
   mode '0755'
 end
 
@@ -56,8 +58,8 @@ end
 template "#{activemq_home}/conf/activemq.xml" do
   source 'activemq.xml.erb'
   mode '0755'
-  owner 'root'
-  group 'root'
+  owner node['activemq']['user'] || 'root'
+  group node['activemq']['group'] || 'root'
   notifies :restart, 'service[activemq]' if node['activemq']['enabled']
   only_if  { node['activemq']['use_default_config'] }
 end
@@ -82,6 +84,8 @@ end
 template "#{activemq_home}/bin/linux/wrapper.conf" do
   source 'wrapper.conf.erb'
   mode '0644'
+  owner node['activemq']['user'] || 'root'
+  group node['activemq']['group'] || 'root'
   only_if { node['activemq']['use_default_config'] }
   notifies :restart, 'service[activemq]' if node['activemq']['enabled']
 end
