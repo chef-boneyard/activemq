@@ -34,5 +34,13 @@ module ActivemqCookbook
     def activemq_enabled
       new_resource.enabled || true
     end
+
+    def derived_install_path
+      new_resource.install_path ? new_resource.install_path.chomp('/') : "/opt/activemq_#{new_resource.instance_name}"
+    end
+
+    def get_amq_jar_name
+      return 'activemq.jar'
+    end
   end
 end

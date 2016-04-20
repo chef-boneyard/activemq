@@ -119,4 +119,10 @@ action :install do
   link "/opt/activemq_#{new_resource.instance_name}" do
     to full_install_path
   end
+
+  # create a link in /etc that points to the latest configuration for the instance
+  link "/etc/default/activemq-instance-#{new_resource.instance_name}" do
+    to "/opt/activemq_#{new_resource.instance_name}/bin/env"
+  end
+  
 end
