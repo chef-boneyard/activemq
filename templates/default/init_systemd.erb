@@ -1,0 +1,23 @@
+# Systemd unit file for tomcat_<%= @instance %>
+
+[Unit]
+Description=<%= @instance %> Apache ActiveMQ Message Broker
+After=syslog.target network.target
+
+[Service]
+Type=forking
+
+<% @env_vars.each do |h| -%>
+  <% h.each_pair do |k,v| -%>
+Environment="<%= k -%>=<%= v %>"
+  <% end -%>
+<% end -%>
+
+ExecStart=<%= @install_path %>/bin/activemq start
+ExecStop=<%= @install_path %>/bin/activemq stop
+
+User=tomcat_<%= @instance %>
+Group=tomcat_<%= @instance %>
+
+[Install]
+WantedBy=multi-user.target

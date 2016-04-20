@@ -19,7 +19,7 @@ end
 property :instance_name, String, name_property: true
 property :install_path, String
 property :env_vars, Array, default: [
-  { 'CATALINA_PID' => '$CATALINA_BASE/bin/activemq.pid' }
+  { 'ACTIVEMQ_PID' => '/opt/activemq_#{new_resource.instance_name}/data/activemq.pid' }
 ]
 
 action :start do
@@ -63,6 +63,10 @@ action :enable do
 end
 
 action_class.class_eval do
+  def derived_install_path
+    new_resource.install_path ? new_resource.install_path.chomp('/') : "/opt/activemq_#{new_resource.instance_name}"
+  end
+
   def create_init
 
     template "/etc/systemd/system/activemq_#{instance_name}.service" do
