@@ -1,8 +1,9 @@
 #
 # Cookbook Name:: activemq
-# Recipe:: default
+# Library:: activemq
 #
-# Copyright 2009-2016, Chef Software, Inc.
+#
+# Copyright 2016, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,4 +18,9 @@
 # limitations under the License.
 #
 
-Chef::Log.warn('The default activemq recipe does nothing. See the README for information on using resources from this cookbook.')
+# the install path of this instance of activemq
+# make sure it doesn't end in / as well as that causes issues in init scripts
+
+def derived_install_path
+  new_resource.install_path ? new_resource.install_path.chomp('/') : "/opt/activemq_#{new_resource.instance_name}"
+end

@@ -5,19 +5,14 @@ Description=<%= @instance %> Apache ActiveMQ Message Broker
 After=syslog.target network.target
 
 [Service]
-Type=forking
+Type=forked
 
-<% @env_vars.each do |h| -%>
-  <% h.each_pair do |k,v| -%>
-Environment="<%= k -%>=<%= v %>"
-  <% end -%>
-<% end -%>
-
+PIDFile=<%= @install_path %>/data/activemq.pid
 ExecStart=<%= @install_path %>/bin/activemq start
 ExecStop=<%= @install_path %>/bin/activemq stop
 
-User=tomcat_<%= @instance %>
-Group=tomcat_<%= @instance %>
+User=activemq_<%= @instance %>
+Group=activemq_<%= @instance %>
 
 [Install]
 WantedBy=multi-user.target

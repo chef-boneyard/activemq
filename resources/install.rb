@@ -5,11 +5,10 @@ property :install_path, String
 property :tarball_base_path, String, default: 'http://archive.apache.org/dist/activemq/'
 property :sha1_base_path, String, default: 'http://archive.apache.org/dist/activemq/'
 
-
 action_class do
   # break apart the version string to find the major version
   def major_version
-    @@major_version ||= new_resource.version.split('.')[0]
+    @major_version ||= new_resource.version.split('.')[0]
   end
 
   # the install path of this instance of activemq
@@ -17,13 +16,13 @@ action_class do
     if new_resource.install_path
       new_resource.install_path
     else
-      @@path ||= "/opt/activemq_#{new_resource.instance_name}_#{new_resource.version.tr('.', '_')}/"
+      @path ||= "/opt/activemq_#{new_resource.instance_name}_#{new_resource.version.tr('.', '_')}/"
     end
   end
 
   # build the extraction command based on the passed properties
   def extraction_command
-    cmd = "tar -xzf #{Chef::Config['file_cache_path']}/apache-activemq-#{new_resource.version}-bin.tar.gz -C #{full_install_path} --strip-components=1"
+    "tar -xzf #{Chef::Config['file_cache_path']}/apache-activemq-#{new_resource.version}-bin.tar.gz -C #{full_install_path} --strip-components=1"
   end
 
   # ensure the version is X.Y.Z format
@@ -80,6 +79,9 @@ action :install do
 
   # some RHEL systems lack tar in their minimal install
   package 'tar'
+  # sudo for ubuntu
+
+  package 'sudo' if node['platform'] == 'ubuntu'
 
   remote_file "apache #{new_resource.version} tarball" do
     source tarball_uri
@@ -105,6 +107,7 @@ action :install do
 
   user "activemq_#{new_resource.instance_name}" do
     gid "activemq_#{new_resource.instance_name}"
+    shell '/bin/bash'
     action :create
   end
 
@@ -124,5 +127,4 @@ action :install do
   link "/etc/default/activemq-instance-#{new_resource.instance_name}" do
     to "/opt/activemq_#{new_resource.instance_name}/bin/env"
   end
-  
 end

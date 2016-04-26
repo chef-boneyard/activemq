@@ -18,9 +18,7 @@ end
 
 property :instance_name, String, name_property: true
 property :install_path, String
-property :env_vars, Array, default: [
-  { 'ACTIVEMQ_PID' => '/opt/activemq_#{new_resource.instance_name}/data/activemq.pid' }
-]
+property :env_vars, Array
 
 action :start do
   create_init
@@ -54,7 +52,6 @@ end
 
 action :enable do
   create_init
-
   service "activemq_#{new_resource.instance_name}" do
     supports status: true
     action :enable
@@ -62,13 +59,8 @@ action :enable do
   end
 end
 
-action_class.class_eval do
-  def derived_install_path
-    new_resource.install_path ? new_resource.install_path.chomp('/') : "/opt/activemq_#{new_resource.instance_name}"
-  end
-
+action_class do
   def create_init
-
     template "/etc/systemd/system/activemq_#{instance_name}.service" do
       source 'init_systemd.erb'
       variables(

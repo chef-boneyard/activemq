@@ -1,6 +1,9 @@
 # activemq Cookbook CHANGELOG
 This file is used to list changes made in each version of the activemq cookbook.
 
+## v3.0.4 
+- rewrite of activemq cookbook as resource driven cookbook
+
 ## v2.0.4 (2015-12-03)
 - Add a new attribute for setting transport protocols: default['activemq']['transport_protocols']
 
