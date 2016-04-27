@@ -1,15 +1,17 @@
 # activemq Cookbook
 [![Build Status](https://travis-ci.org/chef-cookbooks/activemq.svg?branch=master)](https://travis-ci.org/chef-cookbooks/activemq) [![Cookbook Version](https://img.shields.io/cookbook/v/activemq.svg)](https://supermarket.chef.io/cookbooks/activemq)
 
-Installs Apache ActiveMQ and sets up the service using the included init script.
+Provides resources for installing Apache ActiveMQ and managing the Apache ActiveMQ service for use in wrapper cookbooks. Installs from tarballs from the Apache.org website by default. 
 
 ## Requirements
 ### Platforms
-- Debian/Ubuntu
-- RHEL/CentOS/Scientific/Amazon/Oracle
+
+- Debian / Ubuntu derivatives
+- RHEL and derivatives
+- Fedora
 
 ### Chef
-- Chef 11+
+- Chef 12.1+
 
 ### Cookbooks
 - java
@@ -26,8 +28,50 @@ Installs Apache ActiveMQ and sets up the service using the included init script.
 - `node['activemq']['enabled']` - Whether or not the ActiveMQ service should be started.  Defaults to `true`.
 
 ## Usage
-Simply add `recipe[activemq]` to a run list.
+Due to the complexity of configuring ActiveMQ it's not possible to create a single solution that solves everyone's potential desired configuration. Instead this cookbook provides resources for installing and managing the ActiveMQ service, which are best used in your own wrapper cookbook. The best way to understand how this could be used is to look at the docs_example test recipe located at test/cookbooks/test/recipes/docs_example.rb
 
+## Resources
+
+### activemq_install
+
+The activemq_install resource installs an instance of the Apache ActiveMQ binary direct from Apache's mirror site. As distro packages are not used we can easily deploy per-instance installations and any version available on the Apache archive site can be installed.
+
+#### Properties
+
+* `instance_name`, String
+* `version`, String. The version to install. Default: '5.12.0'
+* `home`, String. The top level directory to install software. Default: '/opt'
+* `install_path`, String. The full level path to install software.
+* `tarball_base_path`, String. The base path to the location containing the binary package of ActiveMQ. Default: 'http://archive.apache. org/dist/activemq/'
+* `sha1_base_path`, String. The base path to the location containing the checksum file.   default: 'http://archive.apache.org/dist/activemq/'
+
+#### Example
+
+```
+# Install hello instance of activemq
+activemq_install 'hello' do
+  version '5.12.0'
+end
+```
+
+### activemq_service
+
+The activemq_service resource sets up the installed activemq instance to run using the appropriate init system (sys-v, upstart, or systemd).
+
+#### Properties
+
+* `instance_name`, String.
+* `install_path`, String. The full path to the install directory.
+* `env_vars`, Array. An array of hashes containing the environmental variables for env script. 
+
+#### Example
+
+# Set up activemq hello instance as a service
+```
+activemq_service 'hello' do
+  action [:start, :enable]
+end
+```
 ## License & Authors
 **Author:** Cookbook Engineering Team ([cookbooks@chef.io](mailto:cookbooks@chef.io))
 

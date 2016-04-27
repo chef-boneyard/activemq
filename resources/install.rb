@@ -16,7 +16,7 @@ action_class do
     if new_resource.install_path
       new_resource.install_path
     else
-      @path ||= "/opt/activemq_#{new_resource.instance_name}_#{new_resource.version.tr('.', '_')}/"
+      @path ||= "/#{new_resource.home}/activemq_#{new_resource.instance_name}_#{new_resource.version.tr('.', '_')}/"
     end
   end
 
