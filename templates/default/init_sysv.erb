@@ -1,0 +1,37 @@
+#!/bin/bash
+#
+#
+# chkconfig: 345 80 20
+# description: This shell script takes care of starting and stopping activemq
+
+function usage()
+{
+   echo "Usage: $0 {start|stop|restart|reload|status|version}"
+   RETVAL="2"
+}
+
+# See how we were called.
+RETVAL="0"
+case "$1" in
+    start)
+        <%= @install_path %>/bin/activemq start
+        ;;
+    stop)
+        <%= @install_path %>/bin/activemq stop
+        ;;
+    restart)
+        <%= @install_path %>/bin/activemq stop
+        <%= @install_path %>/bin/activemq start
+        ;;
+    status)
+        <%= @install_path %>/bin/activemq status
+        ;;
+    version)
+        <%= @install_path %>/bin/activemq version
+        ;;
+    *)
+      usage
+      ;;
+esac
+
+exit $RETVAL

@@ -1,0 +1,18 @@
+# Systemd unit file for tomcat_<%= @instance %>
+
+[Unit]
+Description=<%= @instance %> Apache ActiveMQ Message Broker
+After=syslog.target network.target
+
+[Service]
+Type=forked
+
+PIDFile=<%= @install_path %>/data/activemq.pid
+ExecStart=<%= @install_path %>/bin/activemq start
+ExecStop=<%= @install_path %>/bin/activemq stop
+
+User=activemq_<%= @instance %>
+Group=activemq_<%= @instance %>
+
+[Install]
+WantedBy=multi-user.target
