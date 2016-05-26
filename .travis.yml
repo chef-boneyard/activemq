@@ -9,6 +9,10 @@ addons:
     packages:
       - chefdk
 
+branches:
+  only:
+  - master
+
 services: docker
 
 env:
@@ -28,12 +32,17 @@ before_script:
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
   - eval "$(/opt/chefdk/bin/chef shell-init bash)"
   - /opt/chefdk/embedded/bin/chef gem install kitchen-dokken
-
-script:
   - /opt/chefdk/embedded/bin/chef --version
   - /opt/chefdk/embedded/bin/rubocop --version
-  - /opt/chefdk/embedded/bin/rubocop
   - /opt/chefdk/embedded/bin/foodcritic --version
-  - /opt/chefdk/embedded/bin/foodcritic . --exclude spec -f any
-  - /opt/chefdk/embedded/bin/rspec
-  - KITCHEN_LOCAL_YAML=.kitchen.docker.yml /opt/chefdk/embedded/bin/kitchen verify ${INSTANCE}
+
+script: KITCHEN_LOCAL_YAML=.kitchen.docker.yml /opt/chefdk/embedded/bin/kitchen verify ${INSTANCE}
+
+matrix:
+  include:
+  - script: /opt/chefdk/embedded/bin/cookstyle
+    env:  COOKSTYLE=1
+  - script: /opt/chefdk/embedded/bin/foodcritic . --exclude spec -f any
+    env:  FOODCRITIC=1
+  - script: /opt/chefdk/embedded/bin/rspec
+    env:  CHEFSPEC=1
