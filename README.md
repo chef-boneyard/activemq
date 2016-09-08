@@ -9,7 +9,7 @@ Installs Apache ActiveMQ and sets up the service using the included init script.
 - RHEL/CentOS/Scientific/Amazon/Oracle
 
 ### Chef
-- Chef 11+
+- Chef 12.1+
 
 ### Cookbooks
 - java
