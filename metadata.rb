@@ -16,5 +16,4 @@ depends 'java', '~> 1.13'
 
 source_url 'https://github.com/chef-cookbooks/activemq'
 issues_url 'https://github.com/chef-cookbooks/activemq/issues'
-
 chef_version '>= 12.1'

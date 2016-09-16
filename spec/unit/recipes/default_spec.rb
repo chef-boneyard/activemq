@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'default recipe' do
   let(:chef_run) do
-    runner = ChefSpec::ServerRunner.new
+    runner = ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '16.04')
     runner.converge('activemq::default')
   end
 
