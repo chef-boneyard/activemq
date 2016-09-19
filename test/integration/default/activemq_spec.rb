@@ -1,6 +1,3 @@
-describe 'ActiveMQ server' do
-  it 'should be running the activemq server' do
-    expect(service('activemq')).to be_running
-    expect(service('activemq')).to be_enabled
-  end
+describe command('ps ax | grep activem[q]') do
+  its('exit_status') { should eq 0 }
 end
