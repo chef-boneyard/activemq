@@ -98,9 +98,6 @@ platforms:
 
 suites:
   - name: default
-    run_list: activemq::default
-    attributes:
-      activemq:
-        use_default_config: true
-      java:
-        jdk_version: 8
+    run_list: test::legacy
+  - name: resource_based
+    run_list: test::default
