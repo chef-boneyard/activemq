@@ -3,12 +3,12 @@ property :version, String, default: '5.14.0'
 property :install_path, String, default: lazy { |r| "/opt/activemq_#{r.instance_name}_#{r.version.tr('.', '_')}/" }
 property :tarball_base_path, String, default: 'http://archive.apache.org/dist/activemq/'
 property :checksum_base_path, String, default: 'http://archive.apache.org/dist/activemq/'
-property :exclude_docs, kind_of: [TrueClass, FalseClass], default: true
-property :exclude_examples, kind_of: [TrueClass, FalseClass], default: true
-property :exclude_webapp_demo, kind_of: [TrueClass, FalseClass], default: true
+property :exclude_docs, [true, false], default: true
+property :exclude_examples, [true, false], default: true
+property :exclude_webapp_demo, [true, false], default: true
 property :tarball_uri, String
-property :activemq_user, kind_of: String, default: lazy { |r| "activemq_#{r.instance_name}" }
-property :activemq_group, kind_of: String, default: lazy { |r| "activemq_#{r.instance_name}" }
+property :activemq_user, String, default: lazy { |r| "activemq_#{r.instance_name}" }
+property :activemq_group, String, default: lazy { |r| "activemq_#{r.instance_name}" }
 
 action_class do
   # build the extraction command based on the passed properties
