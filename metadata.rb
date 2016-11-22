@@ -13,7 +13,7 @@ recipe 'activemq::default', 'Installs Apache ActiveMQ and sets up the service us
 end
 
 depends 'java', '~> 1.13'
-depends 'compat_resource', '>= 12.14.3'
+depends 'compat_resource', '>= 12.14.6'
 
 source_url 'https://github.com/chef-cookbooks/activemq'
 issues_url 'https://github.com/chef-cookbooks/activemq/issues'
