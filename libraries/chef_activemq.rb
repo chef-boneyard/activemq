@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: activemq
+# Cookbook:: activemq
 # Library:: chef_activemq
 #
 # Author:: Bernardo Gomez Palacio (<bernardo.gomezpalacio@gmail.com>)
