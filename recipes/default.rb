@@ -85,3 +85,9 @@ template "#{activemq_home}/bin/linux/wrapper.conf" do
   only_if { node['activemq']['use_default_config'] }
   notifies :restart, 'service[activemq]' if node['activemq']['enabled']
 end
+
+template "#{activemq_home}/conf/credentials.properties" do
+  source "credentials.conf.erb"
+  mode 0644
+  notifies :restart, 'service[activemq]'
+end
