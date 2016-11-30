@@ -1,7 +1,5 @@
 #!/usr/bin/env rake
 
-require_relative 'tasks/maintainers'
-
 # Style tests. cookstyle (rubocop) and Foodcritic
 namespace :style do
   begin
@@ -40,29 +38,6 @@ begin
   RSpec::Core::RakeTask.new(:spec)
 rescue LoadError => e
   puts ">>> Gem load error: #{e}, omitting #{task.name}" unless ENV['CI']
-end
-
-# Integration tests. Kitchen.ci
-namespace :integration do
-  begin
-    require 'kitchen/rake_tasks'
-
-    desc 'Run kitchen integration tests'
-    Kitchen::RakeTasks.new
-  rescue StandardError => e
-    puts ">>> Gem load error: #{e}, omitting #{task.name}" unless ENV['CI']
-  end
-end
-
-namespace :supermarket do
-  begin
-    require 'stove/rake_task'
-
-    desc 'Publish cookbook to Supermarket with Stove'
-    Stove::RakeTask.new
-  rescue LoadError => e
-    puts ">>> Gem load error: #{e}, omitting #{task.name}" unless ENV['CI']
-  end
 end
 
 # Default
