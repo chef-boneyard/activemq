@@ -30,10 +30,9 @@ class Chef
       version = node['activemq']['version']
       major, minor, = version.split('.').map(&:to_i)
 
-      case
-      when major == 5 && minor >= 8
+      if major == 5 && minor >= 8
         'activemq.jar'
-      when major >= 6
+      elsif major >= 6
         'activemq.jar'
       else
         'run.jar'
