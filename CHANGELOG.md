@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of the activemq cookbook.
 
+## 3.0.1 (2016-12-22)
+- Require compat_resource
+- Remove LWRP-isms from the custom resource
+- Cookstyle fixes
+
 ## 3.0.0 (2016-09-19)
 
 - Require Chef 12.1 or later
