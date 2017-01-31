@@ -34,7 +34,9 @@ unless File.exist?("#{activemq_home}/bin/activemq")
     mode '0644'
   end
 
-  package 'tar'
+  package 'tar for artifact decompression' do # avoid cloning error with java cookbook
+    package_name 'tar'
+  end
 
   execute "tar zxf #{tmp}/apache-activemq-#{version}-bin.tar.gz" do
     cwd node['activemq']['home']
