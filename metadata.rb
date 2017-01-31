@@ -17,4 +17,4 @@ depends 'compat_resource', '>= 12.16.3'
 
 source_url 'https://github.com/chef-cookbooks/activemq'
 issues_url 'https://github.com/chef-cookbooks/activemq/issues'
-chef_version '>= 12.1'
+chef_version '>= 12.1' if respond_to?(:chef_version)
