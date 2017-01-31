@@ -1,7 +1,7 @@
 node.default['activemq']['use_default_config'] = true
 
 # make sure we have an updated package cache on debian/ubuntu
-apt_update 'update' if platform_family?('debian')
+apt_update 'update'
 
 # make sure we have java installed
 include_recipe 'java'
