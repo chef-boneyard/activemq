@@ -13,12 +13,11 @@ Installs Apache ActiveMQ and sets up the service using the included init script.
 
 ### Chef
 
-- Chef 12.1+
+- Chef 12.5+
 
 ### Cookbooks
 
 - java
-- compat_resource
 
 ## Attributes
 
