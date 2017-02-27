@@ -2,6 +2,13 @@
 
 This file is used to list changes made in each version of the activemq cookbook.
 
+## 4.0.0 (2017-02-27)
+
+- Move templates to the root dir since Chef 12 allows this`
+- Remove platform check that isn’t necessary anymore
+- Fix a deprecation warning in the test cookbook
+- Require 12.5+ and remove compat_resource dependency
+
 ## 3.0.1 (2016-12-22)
 - Require compat_resource
 - Remove LWRP-isms from the custom resource
