@@ -8,7 +8,7 @@ version '4.0.0'
 
 recipe 'activemq::default', 'Installs Apache ActiveMQ and sets up the service using the included init script.'
 
-%w(ubuntu debian redhat centos suse scientific oracle amazon).each do |os|
+%w(ubuntu debian redhat centos suse opensuse opensuseleap scientific oracle amazon).each do |os|
   supports os
 end
 
