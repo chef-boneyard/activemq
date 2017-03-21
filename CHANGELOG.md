@@ -2,6 +2,12 @@
 
 This file is used to list changes made in each version of the activemq cookbook.
 
+## 4.0.1 (2017-03-21)
+
+- Test with local delivery and not Rake
+- Update Apache 2.0 license string
+- Add all suse platform strings to the metadata
+
 ## 4.0.0 (2017-02-27)
 
 - Move templates to the root dir since Chef 12 allows this`
