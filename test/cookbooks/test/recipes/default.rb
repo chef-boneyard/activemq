@@ -1,4 +1,4 @@
-apt_update 'update' if platform_family?('debian')
+apt_update 'update'
 
 # make sure we have java installed
 include_recipe 'java'
