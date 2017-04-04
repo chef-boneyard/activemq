@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of the activemq cookbook.
 
+## 4.0.2 (2017-04-04)
+
+- Set 5.14.4 as the default ActiveMQ version
+- Fix issues with action class on Chef 12.5/12.6
+
 ## 4.0.1 (2017-03-21)
 
 - Test with local delivery and not Rake
