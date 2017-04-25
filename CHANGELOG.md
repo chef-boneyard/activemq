@@ -2,6 +2,12 @@
 
 This file is used to list changes made in each version of the activemq cookbook.
 
+## 4.0.3 (2017-04-25)
+
+- Update recipe to 5.14.4
+- Update integration test to include check for activemq 
+- Update documentation for the activemq_install resource. 
+
 ## 4.0.2 (2017-04-04)
 
 - Set 5.14.4 as the default ActiveMQ version
