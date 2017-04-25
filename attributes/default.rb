@@ -18,7 +18,7 @@
 #
 
 default['activemq']['mirror']  = 'https://repository.apache.org/content/repositories/releases/org/apache'
-default['activemq']['version'] = '5.12.0'
+default['activemq']['version'] = '5.14.4'
 default['activemq']['home'] = '/opt'
 default['activemq']['wrapper']['max_memory'] = '1024'
 default['activemq']['wrapper']['useDedicatedTaskRunner'] = 'true'
