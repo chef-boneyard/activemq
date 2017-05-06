@@ -13,7 +13,7 @@ Provides resources for installing Apache ActiveMQ and managing the Apache Active
 
 ### Chef
 
-- Chef 12.5+
+- Chef 12.7+
 
 ### Cookbooks
 
