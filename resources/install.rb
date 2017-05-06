@@ -61,7 +61,7 @@ action :install do
   end
 end
 
-action_class.class_eval do
+action_class do
   # build the extraction command based on the passed properties
   def extraction_command
     cmd = "tar -xzf #{Chef::Config['file_cache_path']}/apache-activemq-#{new_resource.version}-bin.tar.gz -C #{new_resource.install_path} --strip-components=1"
