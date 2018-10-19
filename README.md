@@ -44,7 +44,7 @@ The activemq_install resource installs an instance of the Apache ActiveMQ binary
 #### Properties
 
 * `instance_name`, String
-* `version`, String. The version to install. Default: '5.12.0'
+* `version`, String. The version to install. Default: '5.14.5'
 * `home`, String. The top level directory to install software. Default: '/opt'
 * `install_path`, String. The full level path to install software.
 * `tarball_base_path`, String. The base path to the location containing the binary package of ActiveMQ. Default: 'http://archive.apache. org/dist/activemq/'
