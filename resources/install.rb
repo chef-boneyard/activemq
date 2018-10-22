@@ -1,5 +1,5 @@
 property :instance_name, String, name_property: true
-property :version, String, default: '5.14.4'
+property :version, String, default: '5.14.5'
 property :install_path, String, default: lazy { |r| "/opt/activemq_#{r.instance_name}_#{r.version.tr('.', '_')}/" }
 property :tarball_base_path, String, default: 'http://archive.apache.org/dist/activemq/'
 property :checksum_base_path, String, default: 'http://archive.apache.org/dist/activemq/'

@@ -2,6 +2,12 @@
 
 This file is used to list changes made in each version of the activemq cookbook.
 
+## Unreleased
+
+- Bumped ActiveMQ version to 5.14.5
+- Removed version lock on java cookbook
+- Added 2 new test suites that could be used to replace the existing ones
+
 ## 4.1.0 (2017-05-06)
 
 - Require Chef 12.7+ to workaround action_class bug

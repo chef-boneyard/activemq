@@ -1,0 +1,9 @@
+name: activemq-legacy
+title: ActiveMQ Inspec installation tests using activemq::default
+license: Public Domain
+copyright: none
+summary: Verify ActiveMQ is installed via legacy recipe
+version: 0.0.1
+
+supports:
+  - os-family: linux

@@ -28,3 +28,25 @@ suites:
     run_list: test::legacy
   - name: resource_based
     run_list: test::default
+  - name: activemq-legacy
+    excludes:
+      - freebsd-11
+      - opensuse-leap-42
+    run_list: test::legacy
+    verifier:
+      inspec_tests:
+        - name: activemq-legacy
+          path: test/integration/activemq-legacy
+      attrs:
+        - test/integration/attributes/activemq.yml
+  - name: activemq-resource
+    excludes:
+      - freebsd-11
+      - opensuse-leap-42
+    run_list: test::default
+    verifier:
+      inspec_tests:
+        - name: activemq-resource
+          path: test/integration/activemq-resource
+      attrs:
+        - test/integration/attributes/activemq.yml
